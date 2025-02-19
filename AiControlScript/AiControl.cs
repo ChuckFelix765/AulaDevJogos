@@ -23,16 +23,35 @@ public class AiControl : MonoBehaviour
 
     // Update is called once per frame
     void Update () {
+        
 
         var vel = rb2d.velocity;                // Acessa a velocidade da raquete
-        if (Input.GetKey(moveUp)) {             // Velocidade da Raquete para ir para cima
-            vel.y = speed;
+        if (Puck.x > rb2d.x) {             // Velocidade da Raquete para ir para cima
+            vel.x = speed;
         }
-        else if (Input.GetKey(moveDown)) {      // Velocidade da Raquete para ir para cima
-            vel.y = -speed;                    
+        else if (Puck.x < rb2d.x) {      // Velocidade da Raquete para ir para cima
+            vel.x = -speed;                    
         }
         else {
-            vel.y = 0;                          // Velociade para manter a raquete parada
+            vel.x = 0;                          // Velociade para manter a raquete parada
+        }
+        if (Puck.y > 0 && rb2d.y < Puck.y){
+            vel.x = speed;
+        }
+        else if(Puck.y > 0 && rb2d.y > Puck.y){
+            vel.x = -speed;
+        }
+        else{
+            if(rb2d.y > -4){
+                while(rb2d.y >-4){
+                    vel.y = -speed;
+                }
+            }else if(rb2d < -4){
+                while(rb2d.y < -4){
+                    vel.y = speed;
+                }
+            }
+            vel.x = 0;
         }
         rb2d.velocity = vel;                    // Atualizada a velocidade da raquete
 
