@@ -5,6 +5,7 @@ using UnityEngine;
 public class BallControl : MonoBehaviour
 {
     private Rigidbody2D rb2d;               // Define o corpo rigido 2D que representa a bola
+    public AudioSource source;
     // Start is called before the first frame update
     
     void GoBall(){                      
@@ -19,14 +20,12 @@ public class BallControl : MonoBehaviour
     void Start () {
         rb2d = GetComponent<Rigidbody2D>(); // Inicializa o objeto bola
         Invoke("GoBall", 0);    // Chama a função GoBall após 2 segundos
+        source = GetComponent<AudioSource>();
     }
 
      void OnCollisionEnter2D (Collision2D coll) {
         if(coll.collider.CompareTag("Player")){
-            Vector2 vel;
-            // vel.x = rb2d.velocity.x;
-            // vel.y = (rb2d.velocity.y / 2) + (coll.collider.attachedRigidbody.velocity.y / 3);
-            //rb2d.velocity = vel;
+            source.Play();
         }
     }
 
