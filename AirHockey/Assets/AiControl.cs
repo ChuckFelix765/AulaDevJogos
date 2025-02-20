@@ -7,60 +7,69 @@ public class AiControl : MonoBehaviour
 
 
     public float speed = 5.0f;
-    public float boundTopY = 2.25f;
-    public float boundBotY = 0.0f;
-    public float boundTopX = -2.25f;
-    public float boundBotX = 2.25f;
-
-    private Rigidbody2D rb2d
+    private float boundY = 5.8f;            // Define os limites em Y
+    private float boundX = 3.8f;            // Define os limites em X
+    private Rigidbody2D rb2d;
+    GameObject TheBall;
 
     void Start()
     {
-        
-        Puck = GameObject.FindObjectWithTag("Ball");
+        TheBall = GameObject.FindGameObjectWithTag("Ball");
         rb2d = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update () {
-        
-
+        var Ball = TheBall.transform.position;
+        var pos = transform.position;
         var vel = rb2d.velocity;                // Acessa a velocidade da raquete
-        if (Puck.x > rb2d.x) {             // Velocidade da Raquete para ir para cima
+        if (Ball.x > pos.x) {             // Velocidade da Raquete para ir para cima
             vel.x = speed;
         }
-        else if (Puck.x < rb2d.x) {      // Velocidade da Raquete para ir para cima
+        else if (Ball.x < pos.x) {      // Velocidade da Raquete para ir para cima
             vel.x = -speed;                    
         }
         else {
             vel.x = 0;                          // Velociade para manter a raquete parada
         }
-        if (Puck.y > 0 && rb2d.y < Puck.y){
-            vel.x = speed;
+        if (Ball.y > 0 && pos.y < Ball.y){
+            vel.y = speed;
         }
-        else if(Puck.y > 0 && rb2d.y > Puck.y){
-            vel.x = -speed;
+        else if(Ball.y > 0 && pos.y > Ball.y){
+            vel.y = -speed;
         }
         else{
-            if(rb2d.y > -4){
-                while(rb2d.y >-4){
+            vel.y = 0;
+            /*
+            vel.x = 0;
+            if(pos.y > -4.0f){
+                while(pos.y > -4.0f){
                     vel.y = -speed;
                 }
-            }else if(rb2d < -4){
-                while(rb2d.y < -4){
+            }else if(pos.y < -4.0f){
+                while(pos.y < -4.0f){
                     vel.y = speed;
                 }
             }
-            vel.x = 0;
+            */
         }
         rb2d.velocity = vel;                    // Atualizada a velocidade da raquete
 
-        var pos = transform.position;           // Acessa a Posição da raquete
+        
+
+
         if (pos.y > boundY) {                  
             pos.y = boundY;                     // Corrige a posicao da raquete caso ele ultrapasse o limite superior
         }
-        else if (pos.y < -boundY) {
-            pos.y = -boundY;                    // Corrige a posicao da raquete caso ele ultrapasse o limite superior
+        else if (pos.y < -0.6f) {
+            pos.y = -0.6f;                    // Corrige a posicao da raquete caso ele ultrapasse o limite superior
+        }
+
+        if (pos.x > boundX) {                  
+            pos.x = boundX;                     // Corrige a posicao da raquete caso ele ultrapasse o limite superior
+        }
+        else if (pos.x < -boundX) {
+            pos.x = -boundX;                    // Corrige a posicao da raquete caso ele ultrapasse o limite superior
         }
         transform.position = pos;               // Atualiza a posição da raquete
     
