@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 13966, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: Cena1
+  m_EditorClassIdentifier: 
+  templateScene: {fileID: 102900000, guid: 2cda990e2423bbf4892e6590ba056729, type: 3}
+  templateName: 
+  description: 
+  preview: {fileID: 0}
+  dependencies:
+  - dependency: {fileID: 2800000, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    instantiationMode: 0
+  - dependency: {fileID: 2800000, guid: 7805fa6abc7270640ac0621455ef3de1, type: 3}
+    instantiationMode: 0
+  - dependency: {fileID: 6200000, guid: c772aeed21c689c4f99610313d4c34e9, type: 2}
+    instantiationMode: 0
+  - dependency: {fileID: 2800000, guid: 93489747ad69eb640848fd4b7f307597, type: 3}
+    instantiationMode: 0
+  - dependency: {fileID: 2800000, guid: 79fe4fbaa79b492439d729dbcd5bc287, type: 3}
+    instantiationMode: 0
+  templatePipeline: {fileID: 0}
+  badge: {fileID: 0}
+  addToDefaults: 0
