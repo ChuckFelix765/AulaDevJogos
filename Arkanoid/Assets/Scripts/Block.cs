@@ -17,7 +17,7 @@ public class Block : MonoBehaviour {
     private void OnCollisionEnter2D(Collision2D col)
     {
 
-        if (col.gameObject.name == "Ball")
+        if (col.gameObject.tag == "Ball")
         {
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<AudioSource>().Play();
