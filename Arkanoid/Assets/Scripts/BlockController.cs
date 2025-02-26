@@ -42,21 +42,21 @@ public class BlockController : MonoBehaviour {
     }
     void CreateBlock()
     {
-        float px = -96f;
-        float py = 80f;
+        float px = -12.5f;
+        float py = 5.5f;
         tlBlocks = 0;
         for (int i = 0; i < 5; i++) //linha
         {
-            px = -96f;
+            px = -12.5f;
             for (int j = 0; j < 13; j++)
             {
                 Vector3 pos = new Vector3(px, py, 0);
                 //criar o block na tela
                 Instantiate(blocks[i], pos, Quaternion.identity);
-                px = px + 16;
+                px = px + 1;
                 tlBlocks++;
             }
-            py = py - 8;
+            py = py - 0.5f;
         }
     }
 }
