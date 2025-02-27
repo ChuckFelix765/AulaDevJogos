@@ -5,16 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
+    Scene scene = SceneManager.GetActiveScene();
     public void start(){
-        Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene("Intro");
     }
     public void reset(){
-        Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene("Menu");
     }
     public void jogar(){
-        Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene("CenaJupiter");
     }
     public void sair(){

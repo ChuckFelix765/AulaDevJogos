@@ -19,8 +19,7 @@ public class Player : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        if(GameManager.instance.gameState == GameState.Play)
-        {
+
             
             float h = Input.GetAxis("Horizontal");
             body.velocity = Vector2.right * h * speed;
@@ -32,7 +31,7 @@ public class Player : MonoBehaviour {
                 pos.x = -boundX;                    // Corrige a posicao da raquete caso ele ultrapasse o limite inferior
             }
             transform.position = pos;               // Atualiza a posição da raquete
-        }
+        
        
     }
 }
