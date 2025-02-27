@@ -42,13 +42,13 @@ public class BlockController : MonoBehaviour {
     }
     void CreateBlock()
     {
-        float px = -12.5f;
-        float py = 5.5f;
+        float px = -10.5f;
+        float py = 4.7f;
         tlBlocks = 0;
         for (int i = 0; i < 5; i++) //linha
         {
-            px = -12.5f;
-            for (int j = 0; j < 13; j++)
+            px = -10.5f;
+            for (int j = 0; j < 22; j++)
             {
                 Vector3 pos = new Vector3(px, py, 0);
                 //criar o block na tela

@@ -7,14 +7,17 @@ TagManager:
   - Wall
   - Ball
   - BlockController
+  - Block
+  - BotWall
+  - txtScore
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - MidGorund
   - Water
   - UI
-  - 
+  - Foreground
   - 
   - 
   - 
@@ -43,4 +46,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 3928156999
+    locked: 0
+  - name: midground
+    uniqueID: 1481013307
     locked: 0

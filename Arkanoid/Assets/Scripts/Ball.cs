@@ -1,49 +1,59 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class Ball : MonoBehaviour
-{
-
-    private float vel = 10.0f;
-    private Rigidbody2D rb2d;               // Define o corpo rigido 2D que representa a bola
-    // Start is called before the first frame update
-    // inicializa a bola randomicamente para esquerda ou direita
-    void GoBall(){                      
-            rb2d.AddForce(new Vector2(1, -15));
-            rb2d.velocity = Vector2.up * vel;
-    }
-
+public class Ball : MonoBehaviour {
+    [SerializeField]
+    private float speed = 10f;
+    private Rigidbody2D body;
+    // Use this for initialization
     void Start () {
-        rb2d = GetComponent<Rigidbody2D>(); // Inicializa o objeto bola
         
-        Invoke("GoBall", 2);    // Chama a função GoBall após 2 segundos
     }
-    
-
-    // Determina o comportamento da bola nas colisões com os Players (raquetes)
-    void OnCollisionEnter2D (Collision2D coll) {
-        GetComponent<AudioSource>().Play();
-        if(coll.collider.CompareTag("Player")){
-            Vector2 vel;
-
-            // vel.x = rb2d.velocity.x;
-            // vel.y = (rb2d.velocity.y / 2) + (coll.collider.attachedRigidbody.velocity.y / 3);
-            // rb2d.velocity = vel;
+	
+	// Update is called once per frame
+	void Update () {
+		
+	}
+    public void GoBall()
+    {
+        body = GetComponent<Rigidbody2D>();
+        body.velocity = Vector2.up * speed;
+    }
+    float HitFactor(Vector2 ball, Vector2 player, float playerWidth)
+    {
+        //-1 -0.5 0 0.5 1
+        return (ball.x - player.x) / playerWidth;
+    }
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.name != "GameOver")
+        {
+            GetComponent<AudioSource>().Play();
         }
-    }
-    // Reinicializa a posição e velocidade da bola
-    void ResetBall(){
-        rb2d.velocity = Vector2.zero;
-        transform.position = Vector2.zero;
-    }
 
-    // Reinicializa o jogo
-    void RestartGame(){
-        ResetBall();
-        Invoke("GoBall", 1);
+        if (col.gameObject.name == "Player")
+        {
+            //descobrir o valor do x
+            float x = HitFactor(
+                transform.position,
+                col.transform.position,
+                col.collider.bounds.size.x); 
+            
+            // caclular a direção da bola
+            Vector2 dir = new Vector2(x, 1).normalized;
+
+            //velocidade da bola
+            body.velocity = dir * speed;
+        }
+
+        if(col.gameObject.name == "GameOver")
+        {
+            
+            GameManager.instance.LoadEndGame(GameState.GameOver);
+            gameObject.SetActive(false);
+        }
+
+        
     }
-
-
 }
