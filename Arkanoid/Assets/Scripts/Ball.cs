@@ -1,20 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Ball : MonoBehaviour {
     [SerializeField]
     private float speed = 10f;
     private Rigidbody2D body;
+
+    GameObject Player;
+
+
+    public GameManager gameManager;
     // Use this for initialization
     void Start () {
-        
+        Player = GameObject.FindGameObjectWithTag("Player");
     }
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
+    void ResetBall()
+    {
+        float bola_posx = Player.GetComponent<Transform>().position.x;
+        transform.position = new Vector2(bola_posx,-3.5f);
+        GameManager.instance.PauseGame();
+
+
+    }
     public void GoBall()
     {
         body = GetComponent<Rigidbody2D>();
@@ -46,17 +60,20 @@ public class Ball : MonoBehaviour {
             //velocidade da bola
             body.velocity = dir * speed;
         }
-
-        if(col.gameObject.name == "GameOver" && GetComponent<GameManager>())
+/*
+        if(col.gameObject.name == "GameOver")
         {
-            if (this.gameObject.CompareTag("BotWall")) GameManager.vida.SubVida(1);
+            //GameManager.instance.SubVida(1);
+            //transform.position = new Vector2(0,-3.5f);
 
-            //GameManager.instance.LoadEndGame(GameState.GameOver);
-            //gameObject.SetActive(false);
+            
+
+            //
+            //
 
             
         }
-
+*/
         
     }
 }

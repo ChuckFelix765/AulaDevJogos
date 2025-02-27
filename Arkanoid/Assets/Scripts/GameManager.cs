@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public enum GameState {Stop, Play, Win, GameOver,Pause};
 public class GameManager : MonoBehaviour {
-    public static GameManager instance, vida;
+    public static GameManager instance;
     //Coisas da tela
     [SerializeField]
     Text txtVida;
@@ -20,9 +20,12 @@ public class GameManager : MonoBehaviour {
     private GameObject Ball;
     [SerializeField]
     private GameObject Player;
+    [SerializeField]
+    private GameObject BotWall;
     public GameState gameState;
+
     private float score = 0f;
-    private float vidas = 3f;
+    public float vidas = 3f;
     private void Awake()
     {
         if(instance == null)
@@ -36,17 +39,7 @@ public class GameManager : MonoBehaviour {
                 Destroy(this);
             }
         }
-        if(vida == null)
-        {
-            vida = this;
-        }
-        else
-        {
-            if(vida !=this)
-            {
-                Destroy(this);
-            }
-        }
+
     }
     void Start () {
         gameState = GameState.Stop;
@@ -59,8 +52,8 @@ public class GameManager : MonoBehaviour {
         {
             StartGame();
         }
-        txtScore.text ="Score " + score;
-        txtScore.text ="Vidas: " + vidas;
+        txtScore.text = "Score " + score;
+        txtVida.text = "Vidas: " + vidas;
         if ((Input.GetKeyDown(KeyCode.Space) && gameState == GameState.Play) || (Input.GetKeyDown(KeyCode.Space) && gameState == GameState.Pause))
         {
             PauseGame();
@@ -79,17 +72,27 @@ public class GameManager : MonoBehaviour {
         txtMsg.gameObject.SetActive(false);
     }
 
+    public void ResetBall(){
+
+    }
     public void LoadEndGame(GameState valor)
     {
         
         gameState = valor;
         txtMsg.gameObject.SetActive(true);
+
+        if(this.vidas < 0){ 
+            GameManager.instance.LoadEndGame(GameState.GameOver);
+        }
+
         if(gameState == GameState.GameOver)
         {
+            SceneManager.LoadScene("Derrota");
             txtMsg.text = "GAME OVER";
         }
         else
         {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
             txtMsg.text = "WIN!!!!";
         }
         if(Ball != null)
@@ -106,14 +109,13 @@ public class GameManager : MonoBehaviour {
     public void SubVida(float valor)
     {
         this.vidas -= valor;
-        if(this.vidas < 0){
-            GameManager.instance.LoadEndGame(GameState.GameOver);
-        }
+
+
     }
+
 
     public void RestartGame()
     {
-        
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
