@@ -4,15 +4,7 @@ using UnityEngine;
 
 public class Block : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
 
     private void OnCollisionEnter2D(Collision2D col)
     {
@@ -22,7 +14,7 @@ public class Block : MonoBehaviour {
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<AudioSource>().Play();
             /*
-            if (this.gameObject.tag == "Block") GameController.instance.AddPoints(10);
+            if (this.gameObject.tag == "Block") GameManager.instance.AddPoints(10);
 
             */
             BlockController.instance.DecTLBlocks();
