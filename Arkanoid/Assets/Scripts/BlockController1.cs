@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlockController : MonoBehaviour {
+public class BlockController1 : MonoBehaviour {
     [SerializeField]
     private GameObject[] blocks;
     private int tlBlocks;
 
-    public static BlockController instance;
+    public static BlockController1 instance;
     // Use this for initialization
     private void Awake()
     {
@@ -45,7 +45,7 @@ public class BlockController : MonoBehaviour {
         float px = -10.5f;
         float py = 4.7f;
         tlBlocks = 0;
-        for (int i = 0; i < 3; i++) //linha
+        for (int i = 0; i < 6; i++) //linha
         {
             px = -10.5f;
             for (int j = 0; j < 22; j++)
