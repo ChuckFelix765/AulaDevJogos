@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     private GameObject Player;
     public GameState gameState;
-    private float score;
+    private float score = 0f;
     private void Awake()
     {
         if(instance == null)
