@@ -34,21 +34,19 @@ public class GameManager : MonoBehaviour {
             }
         }
     }
-    void Start () {
-        gameState = GameState.Stop;
-	}
+    // void Start () {
+    //     gameState = GameState.Stop;
+	// }
 	
 	// Update is called once per frame
 	void Update () {
-        txtScore.text = "SCORE: " + score;
+        //txtScore.text ="Score " + score;
         if (Input.GetKeyUp(KeyCode.Space) && gameState == GameState.Stop)
         {
             StartGame();
         }
 
-        if ((Input.GetKeyDown(KeyCode.Space) && gameState == GameState.Play)
-            ||
-            (Input.GetKeyDown(KeyCode.Space) && gameState == GameState.Pause))
+        if ((Input.GetKeyDown(KeyCode.Space) && gameState == GameState.Play) || (Input.GetKeyDown(KeyCode.Space) && gameState == GameState.Pause))
         {
             PauseGame();
         }
