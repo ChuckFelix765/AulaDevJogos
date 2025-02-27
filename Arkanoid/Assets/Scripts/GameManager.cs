@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour {
         gameState = GameState.Stop;
 	}
 	
-	Update is called once per frame
+	//Update is called once per frame
 	void Update () {
         txtScore.text ="Score " + score;
         if (Input.GetKeyUp(KeyCode.Space) && gameState == GameState.Stop)
