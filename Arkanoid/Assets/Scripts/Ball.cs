@@ -47,11 +47,14 @@ public class Ball : MonoBehaviour {
             body.velocity = dir * speed;
         }
 
-        if(col.gameObject.name == "GameOver")
+        if(col.gameObject.name == "GameOver" && GetComponent<GameManager>())
         {
+            if (this.gameObject.CompareTag("BotWall")) GameManager.vida.SubVida(1);
+
+            //GameManager.instance.LoadEndGame(GameState.GameOver);
+            //gameObject.SetActive(false);
+
             
-            GameManager.instance.LoadEndGame(GameState.GameOver);
-            gameObject.SetActive(false);
         }
 
         

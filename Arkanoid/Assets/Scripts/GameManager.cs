@@ -7,8 +7,10 @@ using UnityEngine.UI;
 
 public enum GameState {Stop, Play, Win, GameOver,Pause};
 public class GameManager : MonoBehaviour {
-    public static GameManager instance;
+    public static GameManager instance, vida;
     //Coisas da tela
+    [SerializeField]
+    Text txtVida;
     [SerializeField]
     Text txtScore;
     [SerializeField]
@@ -20,6 +22,7 @@ public class GameManager : MonoBehaviour {
     private GameObject Player;
     public GameState gameState;
     private float score = 0f;
+    private float vidas = 3f;
     private void Awake()
     {
         if(instance == null)
@@ -33,6 +36,17 @@ public class GameManager : MonoBehaviour {
                 Destroy(this);
             }
         }
+        if(vida == null)
+        {
+            vida = this;
+        }
+        else
+        {
+            if(vida !=this)
+            {
+                Destroy(this);
+            }
+        }
     }
     void Start () {
         gameState = GameState.Stop;
@@ -40,12 +54,13 @@ public class GameManager : MonoBehaviour {
 	
 	//Update is called once per frame
 	void Update () {
-        txtScore.text ="Score " + score;
+        
         if (Input.GetKeyUp(KeyCode.Space) && gameState == GameState.Stop)
         {
             StartGame();
         }
-
+        txtScore.text ="Score " + score;
+        txtScore.text ="Vidas: " + vidas;
         if ((Input.GetKeyDown(KeyCode.Space) && gameState == GameState.Play) || (Input.GetKeyDown(KeyCode.Space) && gameState == GameState.Pause))
         {
             PauseGame();
@@ -88,9 +103,17 @@ public class GameManager : MonoBehaviour {
     {
         this.score += valor;
     }
+    public void SubVida(float valor)
+    {
+        this.vidas -= valor;
+        if(this.vidas < 0){
+            GameManager.instance.LoadEndGame(GameState.GameOver);
+        }
+    }
 
     public void RestartGame()
     {
+        
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
