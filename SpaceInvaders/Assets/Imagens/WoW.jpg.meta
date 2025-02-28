@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      WoW_0: 4633912081103454011
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
