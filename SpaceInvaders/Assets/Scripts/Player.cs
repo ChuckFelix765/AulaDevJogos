@@ -3,18 +3,44 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour {
+    public float tiroInicial;
+    public float tiroContinuo;
+    public GameObject tiros;
+    public int numTiros;
+    List<GameObject> listaTiros;
     private float boundX = 10f;
     [SerializeField]
     private float speed = 10f;
     private Rigidbody2D body;
 	// Use this for initialization
 	void Start () {
+        listaTiros = new List<GameObject>();
+        for(int i=0 ; i<=numTiros ; i++){
+            GameObject obj = (GameObject)Instantiate(tiros);
+            obj.SetActive(false);
+            listaTiros.Add(obj);
+        }
         body = GetComponent<Rigidbody2D>();
 	}
 	
+    void Atirar()
+    {
+        for(int i=0 ; i<listaTiros.Count ; i++){
+            if(!listaTiros[i].activeInHierarchy){
+                listaTiros[i].transform.position = transform.position;
+                listaTiros[i].transform.rotation = transform.rotation;
+                listaTiros[i].SetActive(true);
+                break;
+            }
+        }
+    }
 	// Update is called once per frame
 	void Update () {
-		
+		if(Input.GetKeyDown(KeyCode.Space)){
+            InvokeRepeating("Atirar", tiroInicial, tiroContinuo);
+        }else if(Input.GetKeyUp(KeyCode.Space)){
+            CancelInvoke("Atirar");
+        }
 	}
 
     private void FixedUpdate()
@@ -32,6 +58,7 @@ public class Player : MonoBehaviour {
             }
             transform.position = pos;               // Atualiza a posição da raquete
         
+
        
     }
 }
