@@ -7,7 +7,7 @@ public class Invader : MonoBehaviour
     private Rigidbody2D rb2d;
     private float timer = 0.0f;
     private float waitTime = 1.0f;
-    private int state = 0;
+    //private int state = 0;
     private float x;
     private float speed = 2.0f;
     
