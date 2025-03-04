@@ -1061,11 +1061,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blocks:
   - {fileID: 3925513522964856232, guid: bb42a8b9596bcb14d8a93cc02f334358, type: 3}
-  - {fileID: 325960898112243484, guid: ec00a15b937ec644a8813aae3e242065, type: 3}
-  - {fileID: 3608201712526983913, guid: 69aca888b3484c54d85ebfe1de69e752, type: 3}
-  - {fileID: 8773072155855344052, guid: 4ee7a60014408804c94dcdeb669eae8b, type: 3}
-  - {fileID: 2694415519836075768, guid: 08f0a2d3bba3251448a2f8188da49459, type: 3}
-  - {fileID: 1735668153165822352, guid: 2cd70ce2fbc5a2b45b2752f7db661d0d, type: 3}
 --- !u!1 &833429434
 GameObject:
   m_ObjectHideFlags: 0

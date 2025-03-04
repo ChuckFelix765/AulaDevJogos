@@ -13,10 +13,7 @@ public class Block : MonoBehaviour {
         {
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<AudioSource>().Play();
-            
             if (this.gameObject.CompareTag("Block")) GameManager.instance.AddPoints(10);
-
-            
             BlockController.instance.DecTLBlocks();
             Destroy(gameObject,2);
         }
