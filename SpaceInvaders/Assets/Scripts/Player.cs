@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//using UnityEngine.SceneManagement;
+
 
 public class Player : MonoBehaviour {
     public float tiroInicial;
@@ -12,6 +14,8 @@ public class Player : MonoBehaviour {
     [SerializeField]
     private float speed = 10f;
     private Rigidbody2D body;
+    //private int vida = 3;
+    public int inv = 0;
 	// Use this for initialization
 	void Start () {
         listaTiros = new List<GameObject>();
@@ -41,12 +45,16 @@ public class Player : MonoBehaviour {
         }else if(Input.GetKeyUp(KeyCode.Space)){
             CancelInvoke("Atirar");
         }
+        /*Scene scene = SceneManager.GetActiveScene();
+        if(inv == 5){
+            if (scene.name == "Principal"){
+                SceneManager.LoadScene("Vitoria");
+            }
+        }*/
 	}
 
     private void FixedUpdate()
     {
-
-            
             float h = Input.GetAxis("Horizontal");
             body.velocity = Vector2.right * h * speed;
             var pos = transform.position;           // Acessa a Posição da raquete
@@ -57,8 +65,5 @@ public class Player : MonoBehaviour {
                 pos.x = -boundX;                    // Corrige a posicao da raquete caso ele ultrapasse o limite inferior
             }
             transform.position = pos;               // Atualiza a posição da raquete
-        
-
-       
     }
 }

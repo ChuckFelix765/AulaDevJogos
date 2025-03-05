@@ -26,4 +26,12 @@ public class Tiro : MonoBehaviour
     {
         transform.position += new Vector3(0, velTiro, 0)*Time.deltaTime;
     }
+
+    void OnTriggerEnter2D(Collider2D coll){
+        if (coll.gameObject.tag == "Invader"){
+            //Destroy(coll.gameObject);  
+            Desligar();
+        }
+    }
+
 }
