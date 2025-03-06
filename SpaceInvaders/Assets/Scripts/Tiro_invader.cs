@@ -5,8 +5,6 @@ using UnityEngine;
 public class Tiro_invader : MonoBehaviour
 {
     // Start is called before the first frame update
-    public GameObject tiro;
-    public float tiroCoolDown;
     public float velTiro;
     public float tempoVida;
         void OnEnable()
@@ -29,12 +27,12 @@ public class Tiro_invader : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += new Vector3(0, velTiro, 0)*Time.deltaTime;
+        transform.position += new Vector3(0, -velTiro, 0)*Time.deltaTime;
     }
 
 
         void OnTriggerEnter2D(Collider2D coll){
-        if (coll.gameObject.tag == "Invader"){
+        if (coll.gameObject.tag == "Player"){
             //Destroy(coll.gameObject);  
             FindFirstObjectByType<UIManager>().ModificarVida(-1);
             Desligar();

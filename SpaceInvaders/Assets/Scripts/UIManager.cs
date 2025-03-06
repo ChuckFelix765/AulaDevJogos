@@ -50,7 +50,7 @@ public class UIManager : MonoBehaviour
     void AtualizarUI()
     {
         
-        Lifetxt.text = "Life: " + Life;
+        Lifetxt.text = "Life: ";
 
         Scoretxt.text = "Score: " + Score;
     }
