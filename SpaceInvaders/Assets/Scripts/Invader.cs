@@ -14,6 +14,7 @@ public class Invader : MonoBehaviour
     public GameObject tiro;
     private Rigidbody2D rb2d;
     private float timer = 0.0f;
+    private float timer_y = 0.0f;
     private float waitTime = 1.0f;
     //private int state = 0;
     private float x;
@@ -69,9 +70,14 @@ public class Invader : MonoBehaviour
         }
 
         timer += Time.deltaTime;
+        timer_y += Time.deltaTime;
         if (timer >= waitTime){
             ChangeState();
             timer = 0.0f;
+        }
+        if (timer_y >= waitTime*5){
+            transform.position = new Vector3(transform.position.x, transform.position.y - 0.6f, transform.position.z);
+            timer_y = 0.0f;
         }
     }
 
