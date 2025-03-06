@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Text livesText;
 
     private Player player;
-    private Invaders invaders;
+    private Invader invaders;
     //private MysteryShip mysteryShip;
     //private Bunker[] bunkers;
 

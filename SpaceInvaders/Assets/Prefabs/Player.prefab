@@ -175,7 +175,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tiroInicial: 0
-  tiroContinuo: 0
+  tiroContinuo: 1
   tiros: {fileID: 1851873092363223473, guid: 2386d2025d48a1449939f54fd6f55dce, type: 3}
-  numTiros: 0
-  speed: 15
+  numTiros: 3
+  speed: 10
+  inv: 0

@@ -2,23 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tiro : MonoBehaviour
+public class Tiro_invader : MonoBehaviour
 {
-
+    // Start is called before the first frame update
+    public GameObject tiro;
+    public float tiroCoolDown;
     public float velTiro;
     public float tempoVida;
-    // Start is called before the first frame update
-    void OnEnable()
+        void OnEnable()
     {
         Invoke("Desligar", tempoVida);
     }
-
-    void Desligar()
+        void Desligar()
     {
         gameObject.SetActive(false);
     }
-    void OnDesabled(){
+        void OnDesabled(){
         CancelInvoke();
+    }
+
+    void Start()
+    {
+        
     }
 
     // Update is called once per frame
@@ -27,13 +32,12 @@ public class Tiro : MonoBehaviour
         transform.position += new Vector3(0, velTiro, 0)*Time.deltaTime;
     }
 
-    void OnTriggerEnter2D(Collider2D coll){
+
+        void OnTriggerEnter2D(Collider2D coll){
         if (coll.gameObject.tag == "Invader"){
             //Destroy(coll.gameObject);  
-            FindFirstObjectByType<UIManager>().AdicionarScore(100);
-            //FindObjectOfType<UIManager>().AdicionarScore(100);
+            FindFirstObjectByType<UIManager>().ModificarVida(-1);
             Desligar();
         }
     }
-
 }

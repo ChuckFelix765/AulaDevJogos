@@ -146,5 +146,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25615608eb8c6794a8d5b6add0727810, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velTiro: 10
-  tempoVida: 3
+  velTiro: 15
+  tempoVida: 1.5
