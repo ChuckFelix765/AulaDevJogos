@@ -30,6 +30,7 @@ public class Tiro : MonoBehaviour
     void OnTriggerEnter2D(Collider2D coll){
         if (coll.gameObject.tag == "Invader"){
             //Destroy(coll.gameObject);  
+            FindObjectOfType<UIManager>().AdicionarScore(100);
             Desligar();
         }
     }

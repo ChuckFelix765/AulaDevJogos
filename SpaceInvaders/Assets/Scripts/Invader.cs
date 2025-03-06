@@ -58,7 +58,7 @@ public class Invader : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D coll){
         if (coll.gameObject.tag == "Tiro"){
-            //Destroy(coll.gameObject);  
+            //Destroy(coll.gameObject); 
             Destroy(gameObject);
         }
     }
