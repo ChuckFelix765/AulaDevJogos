@@ -52,7 +52,7 @@ public class Invader : MonoBehaviour
         // int numeroAleatorio = random.Next(1, 40); // Gera um número entre 1 e 100
         // Debug.log(random);
   
-        int prob =UnityEngine.Random.Range(1,1000); //prob para atirar
+        int prob =UnityEngine.Random.Range(1,3000); //prob para atirar
 
 
         

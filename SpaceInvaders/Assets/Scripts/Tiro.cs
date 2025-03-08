@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Tiro : MonoBehaviour
 {
-
+    public int multiplicadorTiro;
     public float velTiro;
     public float tempoVida;
     // Start is called before the first frame update
@@ -31,6 +31,7 @@ public class Tiro : MonoBehaviour
         if (coll.gameObject.tag == "Invader"){
             //Destroy(coll.gameObject);  
             FindFirstObjectByType<UIManager>().AdicionarScore(100);
+            FindFirstObjectByType<UIManager>().Matando(multiplicadorTiro);
             //FindObjectOfType<UIManager>().AdicionarScore(100);
             Desligar();
         }//if (coll.gameObject.tag == "Secret"){

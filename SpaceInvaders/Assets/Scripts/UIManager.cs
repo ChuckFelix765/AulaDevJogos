@@ -3,6 +3,7 @@ using UnityEngine.UI; // Para UI padrão
 using TMPro; // Se estiver usando TextMeshPro
 using UnityEngine.SceneManagement;
 using System.Numerics;
+using System;
 
 public class UIManager : MonoBehaviour
 {
@@ -14,9 +15,15 @@ public class UIManager : MonoBehaviour
     public int Score = 0;
     private int scr = 0;
 
+    private int matar;
+
     
     void Start()
     {
+        String cena = SceneManager.GetActiveScene().name;
+        if(cena == "Principal"){
+            matar = 40;
+        }
         hp1 = GameObject.FindGameObjectWithTag("HP1");
         hp2 = GameObject.FindGameObjectWithTag("HP2");
         AtualizarUI();
@@ -42,7 +49,11 @@ public class UIManager : MonoBehaviour
         Score += valor;
         scr++;
         AtualizarUI();
-        if(scr >= 41){
+
+    }
+    public void Matando(int valor){
+        matar = matar-valor;
+        if(matar<=0){
             SceneManager.LoadScene("Vitoria");
         }
     }
