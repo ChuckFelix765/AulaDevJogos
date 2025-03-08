@@ -33,7 +33,13 @@ public class Tiro : MonoBehaviour
             FindFirstObjectByType<UIManager>().AdicionarScore(100);
             //FindObjectOfType<UIManager>().AdicionarScore(100);
             Desligar();
-        }
+        }//if (coll.gameObject.tag == "Secret"){
+        //     //Destroy(coll.gameObject);  
+        //     FindFirstObjectByType<UIManager>().AdicionarScore(500);
+        //     //FindObjectOfType<UIManager>().AdicionarScore(100);
+        //     gameObject.SetActive(false);
+        //     Desligar();
+        // }
     }
 
 }

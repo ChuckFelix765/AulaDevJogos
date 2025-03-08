@@ -55,13 +55,10 @@ public class Invader : MonoBehaviour
         int prob =UnityEngine.Random.Range(1,1000); //prob para atirar
 
 
-        print("Vou atirar");
         
         atira = atira - 1*Time.deltaTime;
-        print(atira);
         if(atira<= 0 ){
             if (prob==1){
-            print("To atirando");
             Atirar();
             //Invoke("Atirar", atira);
             atira = atira_0;

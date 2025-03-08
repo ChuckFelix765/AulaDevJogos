@@ -8,6 +8,7 @@ TagManager:
   - Tiro
   - HP1
   - HP2
+  - Secret
   layers:
   - Default
   - TransparentFX

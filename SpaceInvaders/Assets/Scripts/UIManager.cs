@@ -11,7 +11,7 @@ public class UIManager : MonoBehaviour
     GameObject hp1, hp2;
 
     private int Life = 3;
-    private int Score = 0;
+    public int Score = 0;
     private int scr = 0;
 
     
@@ -42,7 +42,7 @@ public class UIManager : MonoBehaviour
         Score += valor;
         scr++;
         AtualizarUI();
-        if(scr == 40){
+        if(scr >= 41){
             SceneManager.LoadScene("Vitoria");
         }
     }

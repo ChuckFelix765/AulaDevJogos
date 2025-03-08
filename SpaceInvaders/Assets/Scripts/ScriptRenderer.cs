@@ -2,50 +2,38 @@ using UnityEngine;
 
 public class SpriteController : MonoBehaviour
 {
-    private SpriteRenderer spriteRenderer;  // Referência ao SpriteRenderer
-    public float tempoAparicao = 2f;  // Tempo que o sprite vai aparecer na tela (em segundos)
-    public float velocidade = 5f;  // Velocidade da ação (por exemplo, movimento)
-    private bool estaAtivo = false;  // Verifica se o sprite está ativo ou não
+    public GameObject tiro;
+    public float velocidade = 0;  // Velocidade da ação (por exemplo, movimento)
+    private UIManager pont;
+    private Rigidbody2D rb2d;
+
 
     void Start()
     {
+        rb2d = GetComponent<Rigidbody2D>(); 
         // Obtendo o componente SpriteRenderer do GameObject
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.enabled = false;  // Começa invisível
+        //spriteRenderer.enabled = false;  // Começa invisível
+        pont = FindObjectOfType<UIManager>();
     }
 
     void Update()
     {
-        if (estaAtivo)
-        {
-            if(UnityEngine.Random.Range(1,51) < 25){
-            MostrarSprite();
-        }
+            if(pont != null && pont.Score >= 2000){
+                velocidade = 2;
+                //MostrarSprite();
+            }else{
+                velocidade = 0;
+            }
             // Ação que o sprite vai realizar enquanto visível
             // Exemplo: mover para a direita
-            transform.Translate(Vector3.right * velocidade * Time.deltaTime);
+            transform.Translate(Vector3.left * velocidade * Time.deltaTime);
+    }
 
-            // Se o tempo de aparição acabou, o sprite some
-            tempoAparicao -= Time.deltaTime;
-            if (tempoAparicao <= 0)
-            {
-                EsconderSprite();
-            }
+    void OnTriggerEnter2D(Collider2D coll){
+        if (coll.gameObject.tag == "Tiro"){
+            //Destroy(coll.gameObject); 
+            FindFirstObjectByType<UIManager>().AdicionarScore(500);
+            Destroy(gameObject);
         }
-    }
-
-    // Função para ativar o sprite
-    public void MostrarSprite()
-    {
-        spriteRenderer.enabled = true;  // Torna o sprite visível
-        estaAtivo = true;  // Marca que o sprite está ativo
-        tempoAparicao = 2f;  // Reinicia o tempo de aparição (caso precise)
-    }
-
-    // Função para esconder o sprite
-    private void EsconderSprite()
-    {
-        spriteRenderer.enabled = false;  // Torna o sprite invisível
-        estaAtivo = false;  // Marca que o sprite não está mais ativo
     }
 }

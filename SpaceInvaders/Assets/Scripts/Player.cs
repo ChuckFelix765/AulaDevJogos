@@ -45,12 +45,6 @@ public class Player : MonoBehaviour {
         }else if(Input.GetKeyUp(KeyCode.Space)){
             CancelInvoke("Atirar");
         }
-        /*Scene scene = SceneManager.GetActiveScene();
-        if(inv == 5){
-            if (scene.name == "Principal"){
-                SceneManager.LoadScene("Vitoria");
-            }
-        }*/
 	}
 
     private void FixedUpdate()
