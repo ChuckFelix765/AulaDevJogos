@@ -28,7 +28,20 @@ public class Tiro : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D coll){
-        if (coll.gameObject.tag == "Invader"){
+        if (coll.gameObject.tag == "Invader_1"){
+            FindFirstObjectByType<UIManager>().AdicionarScore(300);
+            FindFirstObjectByType<UIManager>().Matando(multiplicadorTiro);
+            Desligar();
+        }if (coll.gameObject.tag == "Invader_2"){
+            FindFirstObjectByType<UIManager>().AdicionarScore(250);
+            FindFirstObjectByType<UIManager>().Matando(multiplicadorTiro);
+            Desligar();
+        }if (coll.gameObject.tag == "Invader_3"){
+            FindFirstObjectByType<UIManager>().AdicionarScore(175);
+            FindFirstObjectByType<UIManager>().Matando(multiplicadorTiro);
+            Desligar();
+        }
+        if (coll.gameObject.tag == "Invader_4"){
             //Destroy(coll.gameObject);  
             FindFirstObjectByType<UIManager>().AdicionarScore(100);
             FindFirstObjectByType<UIManager>().Matando(multiplicadorTiro);

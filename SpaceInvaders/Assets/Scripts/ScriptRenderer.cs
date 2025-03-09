@@ -8,12 +8,13 @@ public class SpriteController : MonoBehaviour
     private Rigidbody2D rb2d;
 
 
+
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>(); 
         // Obtendo o componente SpriteRenderer do GameObject
         //spriteRenderer.enabled = false;  // Começa invisível
-        pont = FindObjectOfType<UIManager>();
+        pont = FindFirstObjectByType<UIManager>();
     }
 
     void Update()
@@ -31,8 +32,9 @@ public class SpriteController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D coll){
         if (coll.gameObject.tag == "Tiro"){
+            int pontos = UnityEngine.Random.Range(400, 600);
             //Destroy(coll.gameObject); 
-            FindFirstObjectByType<UIManager>().AdicionarScore(500);
+            FindFirstObjectByType<UIManager>().AdicionarScore(pontos);
             Destroy(gameObject);
         }
     }

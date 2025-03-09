@@ -9,6 +9,10 @@ TagManager:
   - HP1
   - HP2
   - Secret
+  - Invader_1
+  - Invader_2
+  - Invader_3
+  - Invader_4
   layers:
   - Default
   - TransparentFX
