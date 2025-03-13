@@ -15,8 +15,8 @@ public class UIManager : MonoBehaviour
     public int Score = 0;
     private int scr = 0;
 
-    private int matar;
-
+    public int matar;
+    public float nv = 5f;
     
     void Start()
     {
@@ -27,6 +27,14 @@ public class UIManager : MonoBehaviour
         hp1 = GameObject.FindGameObjectWithTag("HP1");
         hp2 = GameObject.FindGameObjectWithTag("HP2");
         AtualizarUI();
+    }
+
+    public void velo(float vl){
+        Invader[] inimigos = FindObjectsOfType<Invader>();
+        foreach (Invader inimigo in inimigos)
+        {
+            inimigo.changeVel(vl); // Altera a velocidade de cada inimigo
+        }
     }
 
     public void ModificarVida(int valor)
@@ -52,7 +60,11 @@ public class UIManager : MonoBehaviour
 
     }
     public void Matando(int valor){
+        
         matar = matar-valor;
+        if(matar <= 35){
+            velo(nv);
+        }
         if(matar<=0){
             SceneManager.LoadScene("Vitoria");
         }

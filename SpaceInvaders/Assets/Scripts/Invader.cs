@@ -18,7 +18,7 @@ public class Invader : MonoBehaviour
     private float waitTime = 1.0f;
     //private int state = 0;
     private float x;
-    private float speed = 2.0f;
+    public float speed = 2.0f;
     public float atira;
 
     private GameObject obj;
@@ -76,12 +76,17 @@ public class Invader : MonoBehaviour
             transform.position = new Vector3(transform.position.x, transform.position.y - 0.6f, transform.position.z);
             timer_y = 0.0f;
         }
+        changeVel(speed);
     }
 
     void ChangeState(){
         var vel = rb2d.velocity;
         vel.x *= -1;
         rb2d.velocity = vel;
+    }
+
+    public void changeVel(float nv){
+        speed = nv;
     }
 
     void OnTriggerEnter2D(Collider2D coll){
