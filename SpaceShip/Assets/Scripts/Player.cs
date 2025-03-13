@@ -7,9 +7,18 @@ public class PlayerMovement : MonoBehaviour{
     private Rigidbody2D rb; // Referência para o Rigidbody2D
     private Vector2 moveDirection; // Direção do movimento
 
+    private GameObject tiro;
     // Start é chamado antes do primeiro frame de atualização
     void Start(){
         rb = GetComponent<Rigidbody2D>(); // Pegando o componente Rigidbody2D
+    }
+
+        void Atirar()
+    {
+            obj = (GameObject)Instantiate(tiro);
+            obj.transform.position = transform.position;
+            obj.transform.rotation = transform.rotation;
+            obj.SetActive(true);
     }
 
     // Update é chamado uma vez por quadro
@@ -17,6 +26,10 @@ public class PlayerMovement : MonoBehaviour{
         // Obtendo a entrada do usuário para movimentação
         float moveX = Input.GetAxis("Horizontal"); // Movimento na horizontal (A/D ou setas)
         float moveY = Input.GetAxis("Vertical"); // Movimento na vertical (W/S ou setas)
+
+        if(Input.GetKeyDown(KeyCode.Space)){
+            Atirar();
+        }
 
         // Calculando a direção do movimento
         moveDirection = new Vector2(moveX, moveY).normalized; // Normalizando para evitar velocidade maior na diagonal
