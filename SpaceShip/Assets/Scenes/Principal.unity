@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 381184527}
   m_Layer: 0
   m_Name: Farback01_0
-  m_TagString: Untagged
+  m_TagString: Bg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -326,7 +326,7 @@ GameObject:
   - component: {fileID: 700427498}
   m_Layer: 0
   m_Name: Farback02_0
-  m_TagString: Untagged
+  m_TagString: Bg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -549,7 +549,7 @@ GameObject:
   - component: {fileID: 1567445919}
   m_Layer: 0
   m_Name: Stars(1)
-  m_TagString: Untagged
+  m_TagString: Bg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -651,7 +651,7 @@ GameObject:
   - component: {fileID: 2022341272}
   m_Layer: 0
   m_Name: Stars
-  m_TagString: Untagged
+  m_TagString: Bg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
