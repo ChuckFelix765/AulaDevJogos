@@ -1,7 +1,0 @@
-* Criar uma prototipagem rápida no papel antes de iniciar a implementação das novas funcionalidades:
-    * Adicione Pontuação.
-    * Adicione a capacidade da nave de atirar.(Pode ser apenas para frente.)
-* Adicione elementos inimigos que sejam desenhados usando-se de outros Sprites.(um monstro ou uma nave alienígena, por exemplo.)
-* Adicione a capacidade de parar o tempo para que um jogador tenha vantagem.
-    *Esse efeito deve desacelerar ao fundo e os inimigos.
-        *Esse efeito pode ser disparado quando uma determinada pontuação for alcançada (por exemplo).

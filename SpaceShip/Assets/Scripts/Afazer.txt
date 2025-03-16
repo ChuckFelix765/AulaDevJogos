@@ -1,0 +1,6 @@
+* Movimentação  X
+* Pontuação
+* Tiros da Nave
+* Capacidade de desacelerar o tempo
+* Tela de derrota X
+* Tela de vitória X
