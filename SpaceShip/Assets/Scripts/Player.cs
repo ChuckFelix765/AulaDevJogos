@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour{
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("O jogador apertou a tecla Espaço!");
+            //Parallax.slow(0.5f);
             // if(slwt != 1f){
             //     Debug.Log("Aqui");
             //     //slwt.slow = 0.5f;
