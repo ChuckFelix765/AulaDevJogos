@@ -10,9 +10,18 @@ public class PlayerMovement : MonoBehaviour{
     private float boundX = 4.6f;            // Define os limites em X
     //GameObject slow = GameObject.FindwithTag("Bg");
 
+    private GameObject tiro;
     // Start é chamado antes do primeiro frame de atualização
     void Start(){
         rb = GetComponent<Rigidbody2D>(); // Pegando o componente Rigidbody2D
+    }
+
+        void Atirar()
+    {
+            obj = (GameObject)Instantiate(tiro);
+            obj.transform.position = transform.position;
+            obj.transform.rotation = transform.rotation;
+            obj.SetActive(true);
     }
 
     // Update é chamado uma vez por quadro
@@ -22,6 +31,10 @@ public class PlayerMovement : MonoBehaviour{
         float moveY = Input.GetAxis("Vertical"); // Movimento na vertical (W/S ou setas)
         var pos = transform.position;
         transform.position = pos;               // Atualiza a posição da raquete
+
+        if(Input.GetKeyDown(KeyCode.Space)){
+            Atirar();
+        }
 
         // Calculando a direção do movimento
         moveDirection = new Vector2(moveX, moveY).normalized; // Normalizando para evitar velocidade maior na diagonal
