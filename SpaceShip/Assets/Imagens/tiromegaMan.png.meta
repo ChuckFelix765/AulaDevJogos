@@ -226,7 +226,12 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      tiromegaMan_0: 1983335272060216756
+      tiromegaMan_1: -6182363199490226053
+      tiromegaMan_2: 1445291823723573093
+      tiromegaMan_3: -6148561611743207621
+      tiromegaMan_4: -2239368599504261474
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

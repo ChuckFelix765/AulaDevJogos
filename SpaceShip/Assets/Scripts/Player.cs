@@ -8,21 +8,19 @@ public class PlayerMovement : MonoBehaviour{
     private Vector2 moveDirection; // Direção do movimento
     private float boundY = 3.5f;            // Define os limites em Y
     private float boundX = 4.6f;            // Define os limites em X
-    //GameObject slow = GameObject.FindwithTag("Bg");
-
     private GameObject tiro;
+
     // Start é chamado antes do primeiro frame de atualização
     void Start(){
         rb = GetComponent<Rigidbody2D>(); // Pegando o componente Rigidbody2D
     }
 
-        void Atirar()
-    {
-            obj = (GameObject)Instantiate(tiro);
-            obj.transform.position = transform.position;
-            obj.transform.rotation = transform.rotation;
-            obj.SetActive(true);
-    }
+    // void Atirar(){
+    //         obj = (GameObject)Instantiate(tiro);
+    //         obj.transform.position = transform.position;
+    //         obj.transform.rotation = transform.rotation;
+    //         obj.SetActive(true);
+    // }
 
     // Update é chamado uma vez por quadro
     void Update(){
@@ -32,20 +30,17 @@ public class PlayerMovement : MonoBehaviour{
         var pos = transform.position;
         transform.position = pos;               // Atualiza a posição da raquete
 
-        if(Input.GetKeyDown(KeyCode.Space)){
-            Atirar();
-        }
+        // if(Input.GetKeyDown(KeyCode.Space)){
+        //     Atirar();
+        // }
 
         // Calculando a direção do movimento
         moveDirection = new Vector2(moveX, moveY).normalized; // Normalizando para evitar velocidade maior na diagonal
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Debug.Log("O jogador apertou a tecla Espaço!");
-            //Parallax.slow(0.5f);
-            // if(slwt != 1f){
-            //     Debug.Log("Aqui");
-            //     //slwt.slow = 0.5f;
-            // }
+        if (Input.GetKeyDown(KeyCode.C)){
+            Parallax.slw = 0.5f;
+            Debug.Log("O jogador apertou a tecla C!");
+        }else if(Input.GetKeyUp(KeyCode.C)){
+            Parallax.slw = 1f;
         }
 
         if (pos.y > boundY) {                  

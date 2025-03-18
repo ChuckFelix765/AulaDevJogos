@@ -1,6 +1,6 @@
 * Movimentação  X
 * Pontuação
 * Tiros da Nave
-* Capacidade de desacelerar o tempo
+* Capacidade de desacelerar o tempo X(falta aplicar nos inimigos)
 * Tela de derrota X
 * Tela de vitória X

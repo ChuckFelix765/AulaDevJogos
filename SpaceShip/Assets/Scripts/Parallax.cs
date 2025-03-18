@@ -8,11 +8,10 @@ public class Parallax : MonoBehaviour
     private float movingSpeed = 5f;
     public GameObject cam;
     public float parallaxEffect;
-    public float slw;
+    public static float slw = 1f;
+
     // Start is called before the first frame update
-    void Start()
-   {
-        slw = 1f;
+    void Start(){
         lenght = GetComponent<SpriteRenderer>().bounds.size.x;
    }
 
@@ -24,9 +23,5 @@ public class Parallax : MonoBehaviour
             transform.position = new Vector3(lenght, transform.position.y, transform.position.z);
         }
     }
-
-    // public static slow(float b){
-    //     slw = b;
-    // }
 
 }
