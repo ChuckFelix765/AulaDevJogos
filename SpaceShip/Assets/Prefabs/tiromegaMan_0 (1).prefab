@@ -160,3 +160,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 360a0afda9bcf394b88b120bc08a1972, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  multiplicadorTiro: 1
+  velTiro: 10
+  tempoVida: 2

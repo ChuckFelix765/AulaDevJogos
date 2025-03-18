@@ -8,19 +8,19 @@ public class PlayerMovement : MonoBehaviour{
     private Vector2 moveDirection; // Direção do movimento
     private float boundY = 3.5f;            // Define os limites em Y
     private float boundX = 4.6f;            // Define os limites em X
-    private GameObject tiro;
+    public GameObject tiro;
 
     // Start é chamado antes do primeiro frame de atualização
     void Start(){
         rb = GetComponent<Rigidbody2D>(); // Pegando o componente Rigidbody2D
     }
 
-    // void Atirar(){
-    //         obj = (GameObject)Instantiate(tiro);
-    //         obj.transform.position = transform.position;
-    //         obj.transform.rotation = transform.rotation;
-    //         obj.SetActive(true);
-    // }
+     void Atirar(){
+             tiro = (GameObject)Instantiate(tiro);
+             tiro.transform.position = transform.position;
+             tiro.transform.rotation = transform.rotation;
+             tiro.SetActive(true);
+     }
 
     // Update é chamado uma vez por quadro
     void Update(){
@@ -41,6 +41,9 @@ public class PlayerMovement : MonoBehaviour{
             Debug.Log("O jogador apertou a tecla C!");
         }else if(Input.GetKeyUp(KeyCode.C)){
             Parallax.slw = 1f;
+        }
+        if (Input.GetKeyDown(KeyCode.Space)){
+            Atirar();
         }
 
         if (pos.y > boundY) {                  
