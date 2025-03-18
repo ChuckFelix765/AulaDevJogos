@@ -14,8 +14,9 @@ public class Tiro : MonoBehaviour
     }
 
     void Desligar()
-    {
+    {   
         gameObject.SetActive(false);
+
     }
     void OnDesabled(){
         CancelInvoke();
