@@ -1,6 +1,6 @@
 * Movimentação  X
-* Pontuação
-* Tiros da Nave
-* Capacidade de desacelerar o tempo X(falta aplicar nos inimigos)
+* Pontuação X
+* Tiros da Nave X
+* Capacidade de desacelerar o tempo X(fazer o tempo que fica no powerup)
 * Tela de derrota X
 * Tela de vitória X

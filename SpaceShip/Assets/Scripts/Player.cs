@@ -36,12 +36,12 @@ public class PlayerMovement : MonoBehaviour{
 
         // Calculando a direção do movimento
         moveDirection = new Vector2(moveX, moveY).normalized; // Normalizando para evitar velocidade maior na diagonal
-        if (Input.GetKeyDown(KeyCode.C)){
-            Parallax.slw = 0.5f;
-            Debug.Log("O jogador apertou a tecla C!");
-        }else if(Input.GetKeyUp(KeyCode.C)){
-            Parallax.slw = 1f;
-        }
+        // if (Input.GetKeyDown(KeyCode.C)){
+        //     Parallax.slw = 0.5f;
+        //     Debug.Log("O jogador apertou a tecla C!");
+        // }else if(Input.GetKeyUp(KeyCode.C)){
+        //     Parallax.slw = 1f;
+        // }
         if (Input.GetKeyDown(KeyCode.Space)){
             Atirar();
         }
@@ -67,5 +67,11 @@ public class PlayerMovement : MonoBehaviour{
     void FixedUpdate(){
         // Aplicando a movimentação no Rigidbody2D
         rb.MovePosition(rb.position + moveDirection * moveSpeed * Time.fixedDeltaTime);
+    }
+
+    void OnTriggerEnter2D(Collider2D coll){
+        if(coll.gameObject.tag == "Inimigo"){
+            FindFirstObjectByType<GameManager>().MudarVida(-1);
+        }
     }
 }

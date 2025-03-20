@@ -340,7 +340,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2100657919}
         m_TargetAssemblyTypeName: Cenas, Assembly-CSharp
-        m_MethodName: reset
+        m_MethodName: Reset
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
