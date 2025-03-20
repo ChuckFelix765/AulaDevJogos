@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3856143488453605081}
   - component: {fileID: 8296161318317356710}
   - component: {fileID: 3619909859014584566}
-  - component: {fileID: -2712374761943072781}
+  - component: {fileID: 4572811446689207237}
   m_Layer: 0
   m_Name: slowTime
   m_TagString: Untagged
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 279256793215948276}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.109991506, y: -2.99, z: 0}
+  m_LocalPosition: {x: 0.92000866, y: 0, z: 0}
   m_LocalScale: {x: 0.15, y: 0.15, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -134,7 +134,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.92, y: 2.61}
   m_EdgeRadius: 0.02
---- !u!114 &-2712374761943072781
+--- !u!114 &4572811446689207237
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

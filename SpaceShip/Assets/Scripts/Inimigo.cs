@@ -8,7 +8,7 @@ public class Inimigo : MonoBehaviour
 {
     private Rigidbody2D rb2d;
     //private float timer = 5.0f;
-    public float speed = 2.0f;
+    public static float speed = 2.0f;
     public GameObject obj;
 
     // Start is called before the first frame update

@@ -30,18 +30,8 @@ public class PlayerMovement : MonoBehaviour{
         var pos = transform.position;
         transform.position = pos;               // Atualiza a posição da raquete
 
-        // if(Input.GetKeyDown(KeyCode.Space)){
-        //     Atirar();
-        // }
-
         // Calculando a direção do movimento
         moveDirection = new Vector2(moveX, moveY).normalized; // Normalizando para evitar velocidade maior na diagonal
-        // if (Input.GetKeyDown(KeyCode.C)){
-        //     Parallax.slw = 0.5f;
-        //     Debug.Log("O jogador apertou a tecla C!");
-        // }else if(Input.GetKeyUp(KeyCode.C)){
-        //     Parallax.slw = 1f;
-        // }
         if (Input.GetKeyDown(KeyCode.Space)){
             Atirar();
         }
