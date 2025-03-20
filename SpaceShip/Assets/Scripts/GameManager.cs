@@ -15,9 +15,10 @@ public class GameManager : MonoBehaviour{
     private int num_inimigos = 40;
 
     public void ModificarVelocidade(float valor){
-        Parallax.slw = valor;
+        Parallax.slw = Parallax.slw * valor;
         Inimigo.speed = Inimigo.speed * valor;
     }
+
 
     public void AdicionarScore(int valor){
         pontos += valor;

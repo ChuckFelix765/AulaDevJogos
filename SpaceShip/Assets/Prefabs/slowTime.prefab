@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4572811446689207237}
   m_Layer: 0
   m_Name: slowTime
-  m_TagString: Untagged
+  m_TagString: SlowTime
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 279256793215948276}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.92000866, y: 0, z: 0}
+  m_LocalPosition: {x: 1.4500122, y: -2, z: 0}
   m_LocalScale: {x: 0.15, y: 0.15, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -148,3 +148,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vel: 1
   tempoVida: 10
+  tempo_efeito: 0

@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour{
     private float boundY = 3.5f;            // Define os limites em Y
     private float boundX = 4.6f;            // Define os limites em X
     public GameObject tiro;
+    private float tempo_efeito = 5.0f;
+    private int ativado = 0;
 
     // Start é chamado antes do primeiro frame de atualização
     void Start(){
@@ -30,6 +32,13 @@ public class PlayerMovement : MonoBehaviour{
         var pos = transform.position;
         transform.position = pos;               // Atualiza a posição da raquete
 
+        tempo_efeito -= 1*Time.deltaTime;
+        print(tempo_efeito);
+        if(tempo_efeito <=0 && ativado == 1){
+            ativado = 0;
+            Parallax.slw = Parallax.slw * 2.0f;
+            Inimigo.speed = Inimigo.speed * 2.0f;
+        }
         // Calculando a direção do movimento
         moveDirection = new Vector2(moveX, moveY).normalized; // Normalizando para evitar velocidade maior na diagonal
         if (Input.GetKeyDown(KeyCode.Space)){
@@ -51,9 +60,15 @@ public class PlayerMovement : MonoBehaviour{
         }
         transform.position = pos;               // Atualiza a posição da raquete
 
+        
+
+
     }
 
     // FixedUpdate é chamado de forma mais consistente para física
+
+
+
     void FixedUpdate(){
         // Aplicando a movimentação no Rigidbody2D
         rb.MovePosition(rb.position + moveDirection * moveSpeed * Time.fixedDeltaTime);
@@ -63,5 +78,14 @@ public class PlayerMovement : MonoBehaviour{
         if(coll.gameObject.tag == "Inimigo"){
             FindFirstObjectByType<GameManager>().MudarVida(-1);
         }
+        else if (coll.gameObject.tag == "SlowTime"){
+            tempo_efeito = 5.0f;
+            if(ativado == 0){
+                ativado = 1;
+                FindFirstObjectByType<GameManager>().ModificarVelocidade(0.5f);
+            }
+        }
+
     }
+
 }

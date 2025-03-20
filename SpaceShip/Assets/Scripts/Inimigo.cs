@@ -35,13 +35,12 @@ public class Inimigo : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D coll){
         if(coll.gameObject.tag == "tiro"){
-            Destroy(gameObject);
             int drop_rate = UnityEngine.Random.Range(0, 10);
                 if(drop_rate==1){
                     GameObject.Instantiate(obj);
                     obj.transform.position = transform.position;
                 }
-            
+            Destroy(gameObject);
         }
         
     }
