@@ -1,40 +1,53 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
 
-    public Text Lifetxt;
-    public Text Scoretxt;
+    Text Life;
+
+    Text Score;
     GameObject hp1, hp2;
-    private int Life = 3;
-    public int Score = 0;
-    private int scr = 0;
+    public int vidas = 3;
+    public int pontos = 0;
+    private int num_inimigos;
     // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    // Update is called once per frame
+    public void ModificarVelocidade(float valor){
+        Parallax.slw = valor;
+    }
+
+
         void AtualizarUI()
     {
         
-        Lifetxt.text = "Life: ";
+        Life.text = "Life: " + vidas;
 
-        Scoretxt.text = "Score: " + Score;
+        Score.text = "Score: " + Score;
     }
 
         public void AdicionarScore(int valor)
     {
-        Score += valor;
-        scr++;
+        pontos += valor;
+        
         AtualizarUI();
 
     }
-    void update()
-    {
+        public void Matando(int valor){
+            num_inimigos = num_inimigos-valor;
+            if(num_inimigos <= 0){
+                SceneManager.LoadScene("Vitoria");
+            }
+        }
 
-    }
+
 }

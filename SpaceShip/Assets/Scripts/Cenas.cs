@@ -9,7 +9,7 @@ public class Cenas : MonoBehaviour
     public void inicio (){
         SceneManager.LoadScene("Principal");
     }
-    public void reset(){
+    public void Reset(){
         SceneManager.LoadScene("Menu");
     }
     public void sair(){

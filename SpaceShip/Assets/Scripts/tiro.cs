@@ -25,15 +25,20 @@ public class Tiro : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(transform.position.x >1024){
+            Desligar();
+        }
         transform.position += new Vector3(velTiro, 0, 0)*Time.deltaTime;
     }
 
-    //void OnTriggerEnter2D(Collider2D coll){
-    //    if (coll.gameObject.tag == "Invader_1"){
-    //        FindFirstObjectByType<UIManager>().AdicionarScore(300);
-    //        FindFirstObjectByType<UIManager>().Matando(multiplicadorTiro);
-    //        Desligar();
-    //    }
-    //}
+    
+
+    void OnTriggerEnter2D(Collider2D coll){
+        if (coll.gameObject.tag == "Inimigo"){
+            FindFirstObjectByType<GameManager>().AdicionarScore(100);
+            FindFirstObjectByType<GameManager>().Matando(multiplicadorTiro);
+            Desligar();
+        }
+    }
 
 }
