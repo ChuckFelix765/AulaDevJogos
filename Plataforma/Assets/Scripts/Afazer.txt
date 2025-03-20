@@ -1,0 +1,13 @@
+Jogo do tipo plataforma.
+Tela inicial com orientações diretas de como jogar.
+Duas fases. (cenas)
+Tratamento de colisão com as plataformas.
+Fundo com parallax scrolling conforme o jogador se move.
+Jogador, inimigos e itens com sprites animados.
+Itens colecionáveis. Ex: moedas, vidas, maçãs, bananas etc.
+Pontuação
+Cena final do jogo informando derrota ou vitória com botão para reiniciar.
+*   o jogador perde se os inimigos machucarem o jogador e as vidas chegarem a zero.
+*   o jogador ganha se coletar todos os itens predeterminados.
+
+https://www.sprites-inc.co.uk/sprite.php?local=Classic/MM1/Tiles/
