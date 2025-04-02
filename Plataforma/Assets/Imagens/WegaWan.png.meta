@@ -169,7 +169,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      WegaWan_0: 8528778279165363399
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

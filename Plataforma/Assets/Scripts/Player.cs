@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting.ReorderableList.Element_Adder_Menu;
@@ -9,6 +10,9 @@ public class Player : MonoBehaviour{
 
     private Rigidbody2D rb; // Referência ao Rigidbody2D do jogador
     private Animator animations;
+    [SerializeField] private Transform pos_tiro;// coordenadas de onde o tiro vai sair 
+    [SerializeField] private GameObject[] balas; //tiro propriamente diro
+
     private bool grounded;
 
     void Start(){
@@ -51,11 +55,22 @@ public class Player : MonoBehaviour{
     void Atira(){
         animations.SetTrigger("atira");
 
+        balas[FindTiro()].transform.position = pos_tiro.transform.position;
+        balas[FindTiro()].GetComponent<tiroPlayer>().SetDirecao(Mathf.Sign(transform.localScale.x));
+        animations.SetTrigger("atira");
+
+
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Ground"){
             grounded = true;
         }
+    }
+    private int FindTiro(){
+        for(int i=0 ; i<balas.Length ; i++){
+            if(!balas[i].activeInHierarchy) return i;
+        }
+        return 0;
     }
 }
