@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting.ReorderableList.Element_Adder_Menu;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour{
     // Start is called before the first frame update
@@ -65,6 +66,9 @@ public class Player : MonoBehaviour{
     {
         if(collision.gameObject.tag == "Ground"){
             grounded = true;
+        }
+        if(collision.gameObject.tag == "morte"){
+            SceneManager.LoadScene("Derrota");
         }
     }
     private int FindTiro(){
