@@ -5,8 +5,23 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Cena1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Boss.unity
+    guid: 0408ca37b7a06844182326ddabb05831
+  - enabled: 1
+    path: Assets/Scenes/CenaT.unity
+    guid: 3bad2149509be384f8363c4d6e30bbe2
+  - enabled: 1
+    path: Assets/Scenes/Derrota.unity
+    guid: 97e6916307e9ef147989129505c0ef90
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 082bb37c5ee44e245a9c156404613853
+  - enabled: 1
+    path: "Assets/Scenes/Vit\xF3ria.unity"
+    guid: 36a968d2452f9db4ab296b112ce1ab01
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
