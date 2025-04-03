@@ -30,6 +30,10 @@ public class tiroPlayer : MonoBehaviour
         hit = true;
         col.enabled = false;
         anim.SetTrigger("explode");
+        if (collision.gameObject.tag == "Alien"){
+            FindFirstObjectByType<GameManager>().AdicionarScore(100);
+            Desativa();
+        }
     }
     public void SetDirecao(float _direcao){
         direcao = _direcao;

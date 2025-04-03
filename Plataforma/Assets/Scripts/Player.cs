@@ -42,7 +42,6 @@ public class Player : MonoBehaviour{
         }
         animations.SetBool("Run", Horizontali !=0);
         animations.SetBool("grounded", grounded);
-        print(Horizontali!=0);
 
          if(Input.GetKeyDown(KeyCode.Space)){
              Atira();
@@ -65,8 +64,11 @@ public class Player : MonoBehaviour{
         if(collision.gameObject.tag == "Ground"){
             grounded = true;
         }
-        if(collision.gameObject.tag == "morte"){
+        if(collision.gameObject.tag == "morte" || collision.gameObject.tag == "Alien"){
             SceneManager.LoadScene("Derrota");
+        }
+        if(collision.gameObject.tag == "importante"){
+            SceneManager.LoadScene("Boss");
         }
     }
     private int FindTiro(){

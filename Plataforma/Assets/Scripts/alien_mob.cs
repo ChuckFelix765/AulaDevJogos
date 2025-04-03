@@ -15,12 +15,17 @@ public class alien_mob : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update(){
         var vel = rb2d.velocity;
         vel.x = -velx;
         rb2d.velocity = vel;
-        transform.position = new Vector3(velx, 0, 0)*Time.deltaTime;
-    
+        //transform.position = new Vector3(velx, 0, 0)*Time.deltaTime;
+    }
+
+    void OnTriggerEnter2D(Collider2D collision){
+        if(collision.gameObject.tag == "Tiro"){
+            Destroy(gameObject);
+            //FindFirstObjectByType<GameManager>().Matando(multiplicadorTiro);
+        }
     }
 }

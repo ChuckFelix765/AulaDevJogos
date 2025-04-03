@@ -16,6 +16,9 @@ public class GameManager : MonoBehaviour{
 
     public void AdicionarScore(int valor){
         pontos += valor;
+        if(pontos == 400){
+            SceneManager.LoadScene("Vitoria");
+        }
         AtualizarUI();
     }
 

@@ -9,6 +9,9 @@ TagManager:
   - escada
   - morte
   - Colecionaveis
+  - importante
+  - Tiro
+  - Alien
   layers:
   - Default
   - TransparentFX
