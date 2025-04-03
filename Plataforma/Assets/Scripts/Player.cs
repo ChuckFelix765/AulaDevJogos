@@ -59,8 +59,6 @@ public class Player : MonoBehaviour{
         balas[FindTiro()].transform.position = pos_tiro.transform.position;
         balas[FindTiro()].GetComponent<tiroPlayer>().SetDirecao(Mathf.Sign(transform.localScale.x));
         animations.SetTrigger("atira");
-
-
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

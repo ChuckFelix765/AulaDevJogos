@@ -8,6 +8,7 @@ TagManager:
   - Wall
   - escada
   - morte
+  - Colecionaveis
   layers:
   - Default
   - TransparentFX
